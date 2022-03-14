@@ -17,6 +17,6 @@ public class HelloController {
     @GetMapping("/hello")
     public String hello() throws Exception{
         String str = helloService.helloGetNow();
-        return "HelloWorld" + str;
+        return "HelloWorld by rim" + str + "뭐요";
     }
 }
