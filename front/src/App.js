@@ -1,48 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { useState, useEffect } from 'react';
-import axios from 'axios'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Main from './main';
+import Login from './Login';
+import Profile from './Profile';
+import { Link, BrowserRouter, Route } from 'react-router-dom';
 
 
 function App() {
-    const [ testStr, setTestStr ] = useState('');
-
-    // 변수 초기화확인
-    function callback(str) {
-    setTestStr(str);
-    }
-
-    // 첫 번째 렌더링을 마친 후 실행
-    useEffect(
-        () => {
-          axios({
-              url: '/hello',
-              method: 'GET'
-          }).then((res) => {
-              callback(res.data);
-          })
-        }, []
-    );
-
-    return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        {testStr}
-      </header>
+  return (
+  <BrowserRouter>
+    <div>
+      <ul>
+        <li>
+          <Link to="/">홈</Link>
+        </li>
+        <li>
+          <Link to="/login">로그인</Link>
+        </li>
+        <li>
+           <Link to="/profile">프로필</Link>
+        </li>
+      </ul>
+      <Route path="/" component={Main} exact/>
+      <Route path="/login" component={Login} />
+      <Route path="/profile" component={Profile} />
     </div>
-    );
+    </BrowserRouter>
+  );
 }
 
 export default App;
