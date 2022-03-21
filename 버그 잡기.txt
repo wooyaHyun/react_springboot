@@ -1,0 +1,35 @@
+node js 16.14.2 설치(16버전이면 ok)
+
+npm intall
+(update 금지 - package.json에 있는 버전도 업데이트 시켜버림)
+버전 안 맞는 에러 뜰 때 npm install --force  
+--save 어쩌구 명령어는..버전이 바뀌게 설치되는 것 같음
+
+그럼 아마 node-sass 부분에서 설치 에러가 날 것임
+
+npm install node-sass@6  (nodejs 16버전에 맞추어 node-sass는 6버전으로 설치)
+
+node-sass 에러
+
+1. 버전 어쩌구 하면서 뜨는 에러
+npm install --force node-sass@6
+(--force 트리 의존성? 무시하고 설치하는 명령어)
+
+2. 설치 시작은 되는데 갑자기 엄청 긴 에러가 뜨면서 python도 없다 뭐도 없다 뜰 때
+
+1). npm install --global --production windows-build-tools
+엄청 오래걸림...안될수도있음...
+npm install --global --production windows-build-tools@4
+이렇게도 해보삼 하지만 우리는 5버전 깔아야하는게 맞음
+
+2). npm install --global node-gyp
+
+
+3. 2015? not found 어쩌구 에러
+
+visual studio 2017 community 버전 설치 (python, nodejs 개발환경 선택)
+설치 후 프로젝트 경로에서
+npm config set msvs_version 2017
+
+
+
